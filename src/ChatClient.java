@@ -119,11 +119,14 @@ final class ChatClient {
             }
         }
         // Create your client and start it
+
         ChatClient client = new ChatClient(server, port, username);
         client.start();
 
         // Send an empty message to the server
-        client.sendMessage(new ChatMessage());
+        while(s.hasNextLine()){
+        client.sendMessage(new ChatMessage(s.nextLine(),0));
+        }
     }
 
 
