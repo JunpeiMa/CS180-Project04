@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -25,11 +23,13 @@ final class ChatServer {
     private void start() {
         try {
             ServerSocket serverSocket = new ServerSocket(port);
-            Socket socket = serverSocket.accept();
-            Runnable r = new ClientThread(socket, uniqueId++);
-            Thread t = new Thread(r);
-            clients.add((ClientThread) r);
-            t.start();
+            while (true) {
+                Socket socket = serverSocket.accept();
+                Runnable r = new ClientThread(socket, uniqueId++);
+                Thread t = new Thread(r);
+                clients.add((ClientThread) r);
+                t.start();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
