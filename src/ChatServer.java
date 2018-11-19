@@ -42,6 +42,8 @@ final class ChatServer {
      */
     public static void main(String[] args) {
         ChatServer server = new ChatServer(1500);
+        if(args.length == 1)
+        server = new ChatServer(Integer.parseInt(args[0]));
         server.start();
     }
 
