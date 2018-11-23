@@ -98,6 +98,7 @@ final class ChatClient {
         String username = "Anonymous";
         int port = 1500;
         String server = "localhost";
+        Scanner s = new Scanner(System.in);
         boolean startConnection = false;
         while (!startConnection) {
 //            String input = s.nextLine();
@@ -141,7 +142,6 @@ final class ChatClient {
 
         ChatClient client = new ChatClient(server, port, username);
         client.start();
-        Scanner s = new Scanner(System.in);
 
         // Send an empty message to the server
         while(s.hasNextLine()){
