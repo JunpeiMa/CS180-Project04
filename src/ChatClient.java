@@ -95,34 +95,35 @@ final class ChatClient {
      */
     public static void main(String[] args) {
         // Get proper arguments and override defaults
+        Scanner s = new Scanner(System.in);
         String username = "Anonymous";
         int port = 1500;
         String server = "localhost";
-        Scanner s = new Scanner(System.in);
         boolean startConnection = false;
         while (!startConnection) {
-//            String input = s.nextLine();
-//            String[] splitInput = input.split(" ");
-//            if (splitInput.length >= 2 && splitInput.length < 6) {
-//                if (splitInput[0].equals("java") && splitInput[1].equals("ChatClient")) {
-//                    startConnection = true;
-//                    if (splitInput.length >= 3) {
-//                        username = splitInput[2];
-//                    }
-//                    if (splitInput.length >= 4) {
-//                        port = Integer.parseInt(splitInput[3]);
-//                    }
-//                    if (splitInput.length == 5) {
-//                        server = splitInput[4];
-//                    }
-//                }
-//            }
-
-            if (args.length <= 3)
+            String input = s.nextLine();
+            String[] splitInput = input.split(" ");
+            if (splitInput.length >= 2 && splitInput.length < 6) {
+                if (splitInput[0].equals("java") && splitInput[1].equals("ChatClient")) {
+                    startConnection = true;
+                    if (splitInput.length >= 3) {
+                        username = splitInput[2];
+                    }
+                    if (splitInput.length >= 4) {
+                        port = Integer.parseInt(splitInput[3]);
+                    }
+                    if (splitInput.length == 5) {
+                        server = splitInput[4];
+                    }
+                }
+            }
+            //Note: I had issues with implementing args, so I have my old code running in the meantime
+            /*if (args.length <= 3)
                 startConnection = true;
 
             if (args.length >= 1) {
                 username = args[0];
+                System.out.println(username);
             }
 
             if (args.length == 3){
@@ -135,17 +136,22 @@ final class ChatClient {
                 }
             } catch (Exception e) {
                 startConnection = false;
-            }
+            } */
 
         }
         // Create your client and start it
-
+        System.out.println("Client created successfully"); //Used solely for testing.
         ChatClient client = new ChatClient(server, port, username);
         client.start();
-
         // Send an empty message to the server
         while(s.hasNextLine()){
-        client.sendMessage(new ChatMessage("",0));
+            String message = s.nextLine();
+            if (message.equalsIgnoreCase("/logout"))
+            {
+                client.sendMessage(new ChatMessage(message, 1));
+            } else {
+                client.sendMessage(new ChatMessage(message, 0));
+            }
         }
     }
 
