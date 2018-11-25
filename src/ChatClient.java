@@ -42,7 +42,9 @@ final class ChatClient {
         try {
             socket = new Socket(server, port);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("An error has occurred and the socket could not be created successfully. Try starting" +
+                    " the server before starting any clients or try using a Port Number the server is currently" +
+                    " listening for.");
         }
 
         // Create your input and output streams
@@ -50,7 +52,8 @@ final class ChatClient {
             sInput = new ObjectInputStream(socket.getInputStream());
             sOutput = new ObjectOutputStream(socket.getOutputStream());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("An error has occurred and the Input and Output streams could not be successfully" +
+                    " created. Check to make sure the socket was created properly. The Client will now close.");
         }
 
         // This thread will listen from the server for incoming messages
@@ -74,7 +77,16 @@ final class ChatClient {
      */
     private void sendMessage(ChatMessage msg) {
         try {
-            sOutput.writeObject(msg);
+            if (msg.getType() == 1)
+            {
+                sOutput.close();
+                sInput.close();
+                socket.close();
+                //TODO: Catch the SocketException, and output accordingly
+            } else
+            {
+                sOutput.writeObject(msg);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

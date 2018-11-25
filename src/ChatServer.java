@@ -3,8 +3,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
 
 final class ChatServer {
     private static int uniqueId = 0;
@@ -47,6 +49,31 @@ final class ChatServer {
         server.start();
     }
 
+    private void broadcast(String message)
+    {
+        //TODO: Implement method. Broadcasts message to all clients and prints on server.
+        synchronized (this) { //Might want to check this later...
+            SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
+            String timeRecieved = time.format(new Date());
+            String messageWithTime = timeRecieved + " " + message;
+            for (int i = 0; i < clients.size(); i++)
+            {
+                clients.get(i).writeMessage(messageWithTime);
+            }
+            System.out.println(messageWithTime);
+        }
+    }
+
+    private void remove(int id)
+    {
+        //TODO: Implement method. Removes a client from the ArrayList.
+    }
+
+    private void close()
+    {
+        //TODO: Implement method. This does the same thing as logging out of the ChatClient
+    }
+
 
     /*
      * This is a private class inside of the ChatServer
@@ -81,12 +108,11 @@ final class ChatServer {
 
             while (this.socket.isConnected()) {
                 // Read the username sent to you by client
-
-
                 try {
                     cm = (ChatMessage) sInput.readObject();
                     //System.out.println(username + ": Ping");
-                    System.out.println(username + " : " + cm.getMsg());
+                    String message = (username + " : " + cm.getMsg());
+                    broadcast(message);
 
 
                 } catch (IOException | ClassNotFoundException e) {
@@ -100,6 +126,26 @@ final class ChatServer {
 //                } catch (IOException e) {
 //                    e.printStackTrace();
 //                }
+            }
+        }
+
+        private boolean writeMessage(String msg)
+        {
+            //TODO: Implement method. If socket is not connected, return false.
+            //TODO: If socket is connected. Write message to OOS (Object Output Stream).
+            if (this.socket.isConnected())
+            {
+                try {
+                    sOutput.writeObject(msg);
+                    return true;
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                    return true;
+                }
+            } else
+            {
+                return false;
             }
         }
     }
