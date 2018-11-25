@@ -42,8 +42,8 @@ final class ChatServer {
      */
     public static void main(String[] args) {
         ChatServer server = new ChatServer(1500);
-        if(args.length == 1)
-        server = new ChatServer(Integer.parseInt(args[0]));
+        if (args.length == 1)
+            server = new ChatServer(Integer.parseInt(args[0]));
         server.start();
     }
 
@@ -77,20 +77,29 @@ final class ChatServer {
          */
         @Override
         public void run() {
-            // Read the username sent to you by client
-            try {
-                cm = (ChatMessage) sInput.readObject();
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            System.out.println(username + ": Ping");
 
 
-            // Send message back to the client
-            try {
-                sOutput.writeObject("Pong");
-            } catch (IOException e) {
-                e.printStackTrace();
+            while (this.socket.isConnected()) {
+                // Read the username sent to you by client
+
+
+                try {
+                    cm = (ChatMessage) sInput.readObject();
+                    //System.out.println(username + ": Ping");
+                    System.out.println(username + " : " + cm.getMsg());
+
+
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+
+//                //TODO: Send message back to the client
+//                try {
+//                    sOutput.writeObject("Pong");
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
         }
     }
