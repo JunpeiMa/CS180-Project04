@@ -113,7 +113,7 @@ final class ChatClient {
         String server = "localhost";
         boolean startConnection = false;
         while (!startConnection) {
-            String input = s.nextLine();
+            /*String input = s.nextLine();
             String[] splitInput = input.split(" ");
             if (splitInput.length >= 2 && splitInput.length < 6) {
                 if (splitInput[0].equals("java") && splitInput[1].equals("ChatClient")) {
@@ -128,9 +128,9 @@ final class ChatClient {
                         server = splitInput[4];
                     }
                 }
-            }
+            } */
             //Note: I had issues with implementing args, so I have my old code running in the meantime
-            /*if (args.length <= 3)
+            if (args.length <= 3)
                 startConnection = true;
 
             if (args.length >= 1) {
@@ -148,7 +148,7 @@ final class ChatClient {
                 }
             } catch (Exception e) {
                 startConnection = false;
-            } */
+            }
 
         }
         // Create your client and start it

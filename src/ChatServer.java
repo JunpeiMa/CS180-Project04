@@ -51,11 +51,12 @@ final class ChatServer {
 
     private void broadcast(String message)
     {
-        //TODO: Implement method. Broadcasts message to all clients and prints on server.
         synchronized (this) { //Might want to check this later...
+            ChatFilter cf = new ChatFilter("badwords.txt");
+            String filteredMsg = cf.filter(message);
             SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
             String timeRecieved = time.format(new Date());
-            String messageWithTime = timeRecieved + " " + message;
+            String messageWithTime = timeRecieved + " " + filteredMsg;
             for (int i = 0; i < clients.size(); i++)
             {
                 clients.get(i).writeMessage(messageWithTime);
@@ -106,7 +107,7 @@ final class ChatServer {
         public void run() {
 
 
-            while (this.socket.isConnected()) {
+            while (this.socket.isConnected()) { //TODO: Issue here. When client logs off, this still loops.
                 // Read the username sent to you by client
                 try {
                     cm = (ChatMessage) sInput.readObject();
@@ -119,8 +120,6 @@ final class ChatServer {
                     e.printStackTrace();
                 }
 
-
-//                //TODO: Send message back to the client
 //                try {
 //                    sOutput.writeObject("Pong");
 //                } catch (IOException e) {
@@ -131,18 +130,15 @@ final class ChatServer {
 
         private boolean writeMessage(String msg)
         {
-            //TODO: Implement method. If socket is not connected, return false.
-            //TODO: If socket is connected. Write message to OOS (Object Output Stream).
             if (this.socket.isConnected())
             {
                 try {
                     sOutput.writeObject(msg);
-                    return true;
                 } catch (IOException e)
                 {
                     e.printStackTrace();
-                    return true;
                 }
+                return true;
             } else
             {
                 return false;
