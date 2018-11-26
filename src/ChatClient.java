@@ -130,7 +130,6 @@ final class ChatClient {
                     }
                 }
             } */
-            //Note: I had issues with implementing args, so I have my old code running in the meantime
             if (args.length <= 3)
                 startConnection = true;
 
@@ -157,6 +156,12 @@ final class ChatClient {
         ChatClient client = new ChatClient(server, port, username);
         client.start();
         // Send an empty message to the server
+        if (client.server == "localhost") {
+            System.out.println("Connection accepted localhost/127.0.0.1:" + client.port);
+        } else
+        {
+            System.out.println("Connection accepted " + client.server + client.port);
+        }
         while(s.hasNextLine()){
             String message = s.nextLine();
             if (message.equalsIgnoreCase("/logout"))
@@ -183,7 +188,7 @@ final class ChatClient {
                     System.out.println();
                 }
             } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+                System.out.println("Server has closed the connection.");
             }
         }
     }
@@ -192,11 +197,9 @@ final class ChatClient {
 //TODO: Check if username is unique
 //TODO: Check if port number matches server port number
 //TODO: Check if server is started before connecting Client
-//TODO: Handle /logout properly on both ends
 //TODO: Remove client from client list if they are disconnected or have logged out
 //TODO: Handle server disconnect in Client
-//TODO: Handle client disconnect in Server. Make it so it doesn't infinitely loop.
 //TODO: Finish ChatFilter and make it work properly.
-//TODO: Implement direct messaging between users. A user cannot DM themselves
-//TODO: Listing Users with the /list command, excluding the user who puts command in.
+//TODO: Implement direct messaging between users. A user cannot DM themselves.
+//TODO: Make client automatically close program when they logout.
 

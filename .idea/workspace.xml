@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="96ac5acb-df4d-4f06-a5e8-7a819a0a70e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient$ListenFromServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient$ListenFromServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer$ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer$ClientThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,13 +19,33 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/CS180_Project04$ChatClient.ic" NAME="ChatClient Coverage Results" MODIFIED="1542970641224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-239830306">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="2139" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2139" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+            <state relative-caret-position="278">
+              <caret line="162" column="83" selection-start-line="162" selection-start-column="83" selection-end-line="162" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -28,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="118" column="32" lean-forward="true" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+            <state relative-caret-position="-1609">
+              <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/badwords.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -52,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
+            <state relative-caret-position="731">
               <caret line="46" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="e#218#219#0" expanded="true" />
@@ -66,7 +91,6 @@
         <entry file="file://$PROJECT_DIR$/src/ChatMessage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret lean-forward="true" />
               <folding>
                 <element signature="e#462#463#0" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
@@ -88,6 +112,8 @@
       <find>logout</find>
       <find>listen</find>
       <find>socket</find>
+      <find>thread</find>
+      <find>remove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,25 +122,22 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ChatClient.java" />
         <option value="$PROJECT_DIR$/src/ChatServer.java" />
+        <option value="$PROJECT_DIR$/src/ChatClient.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="307" />
-    <option name="y" value="32" />
-    <option name="width" value="970" />
-    <option name="height" value="488" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -122,38 +145,46 @@
               <item name="CS180-Project04" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="CS180-Project04" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
             <path>
-              <item name="CS180-Project04" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="CS180-Project04" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="CS180-Project04" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS180-Project04" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CS180-Project04" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="CS180-Project04" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="production" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="CS180-Project04" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS180-Project04" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CS180-Project04" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="CS180-Project04" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="out" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="production" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="CS180-Project04" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="CS180-Project04" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS180-Project04" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CS180-Project04" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="CS180-Project04" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="CS180-Project04" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS180-Project04" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="CS180-Project04" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543196358823" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543255262493" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
@@ -189,6 +220,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ChatClient" />
+      <item itemvalue="Application.ChatServer" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ChatClient" />
@@ -214,12 +249,12 @@
       <option name="project" value="LOCAL" />
       <updated>1543195280461</updated>
     </task>
-    <task id="LOCAL-00002" summary="Simplified ChatClient initializer.">
-      <created>1542972162447</created>
+    <task id="LOCAL-00002" summary="Now the ChatClient thread is able to send multiple messages to ChatServer.">
+      <created>1543198872850</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1542972162447</updated>
+      <updated>1543198872850</updated>
     </task>
     <task id="LOCAL-00003" summary="Now the ChatClient thread is able to send multiple messages to ChatServer.">
       <created>1543145041999</created>
@@ -228,14 +263,13 @@
       <option name="project" value="LOCAL" />
       <updated>1543145041999</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="31" width="1297" height="737" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26932272" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.5644938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -244,15 +278,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960223" weight="0.32786885" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960223" visible="true" weight="0.32056737" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39885223" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4988067" weight="0.35409835" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50119334" side_tool="true" weight="0.3284553" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32786885" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3295082" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32765958" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3248227" />
+      <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -290,29 +325,37 @@
       </map>
     </option>
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Now the ChatClient thread is able to send multiple messages to ChatServer." />
     <option name="LAST_COMMIT_MESSAGE" value="Now the ChatClient thread is able to send multiple messages to ChatServer." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Thread.java">
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Thread.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/io/ObjectInputStream.java" />
+    <entry file="file://$PROJECT_DIR$/badwords.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="833" selection-start-line="833" selection-end-line="833" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/io/ObjectInputStream.java">
+    <entry file="file://$PROJECT_DIR$/src/ChatFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="1560" selection-start-line="1560" selection-end-line="1560" />
+        <state relative-caret-position="731">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret lean-forward="true" />
           <folding>
             <element signature="e#462#463#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
@@ -322,38 +365,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#218#219#0" expanded="true" />
-            <element signature="e#274#275#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/badwords.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+        <state relative-caret-position="-1609">
+          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
+    <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="118" column="32" lean-forward="true" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+        <state relative-caret-position="278">
+          <caret line="162" column="83" selection-start-line="162" selection-start-column="83" selection-end-line="162" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -400,7 +425,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>11</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -417,6 +442,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

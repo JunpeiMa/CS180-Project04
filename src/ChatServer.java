@@ -95,7 +95,12 @@ final class ChatServer {
             String messageWithTime = timeReceived + " " + filteredMsg;
             for (int i = 0; i < clients.size(); i++)
             {
-                clients.get(i).writeMessage(messageWithTime);
+                try {
+                    clients.get(i).writeMessage(messageWithTime);
+                } catch (NullPointerException e)
+                {
+                    System.out.print("");
+                }
             }
             System.out.println(messageWithTime);
         }
@@ -103,16 +108,14 @@ final class ChatServer {
 
     private void remove(int id)
     {
-        //TODO: Implement method. Removes a client from the ArrayList.
-
-        ClientThread client = clients.get(id);
-            close(client);
-        clients.set(id,null);
+        synchronized (this) {
+            close(clients.get(id));
+            clients.set(id, null);
+        }
     }
 
     private void close(ClientThread client)
     {
-        //TODO: Implement method. This does the same thing as logging out of the ChatClient
         try {
             client.sOutput.close();
             client.sInput.close();
@@ -154,20 +157,34 @@ final class ChatServer {
         @Override
         public void run() {
             String timeReceived = time.format(new Date());
-            System.out.println(timeReceived + " Server waiting for clients on port " + port);
-
-            while (!this.socket.isClosed()) { //TODO: Issue here. When client logs off, this still loops.
+            System.out.println(timeReceived + " " + username + " just connected.");
+            System.out.println(timeReceived + " Server waiting for clients on port " + port + ".");
+            while (clients.get(id) != null) {
                 // Read the username sent to you by client
                 try {
                     cm = (ChatMessage) sInput.readObject();
-                    //System.out.println(username + ": Ping");
-                    String message = (username + " : " + cm.getMsg());
-                    broadcast(message);
-                    if (cm.getType() == 1)
-                        this.socket.close();
+                    if (cm.getMsg().equals("/list"))
+                    {
+                        String timeList = time.format(new Date());
+                        System.out.println(timeList + " " + username + " used /list command.");
+                        for (int i = 0; i < clients.size(); i++)
+                        {
+                            if (clients.get(i).username != username) {
+                                sOutput.writeObject(clients.get(i).username);
+                            }
+                        }
+                    } else {
+                        //System.out.println(username + ": Ping");
+                        String message = (username + " : " + cm.getMsg());
+                        broadcast(message);
+                        if (cm.getType() == 1) {
+                            remove(id);
+                        }
+                    }
 
                 } catch (IOException | ClassNotFoundException e) {
-                    e.printStackTrace();
+                        remove(id);
+                    System.out.println("Connection with " + username + " has been terminated by the user.");
                 }
 
 //                try {
