@@ -69,13 +69,17 @@ final class ChatServer {
 
             fr.close();
             br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            //System.out.println("Error: Censored words file not found.");
-        }
-        System.out.println("Banned Words:\n");
-        for (int i = 0; i < badWords.size(); i++) {
-            System.out.println(badWords.get(i) + "\n");
+            System.out.println("Banned Words:");
+            for (int i = 0; i < badWords.size(); i++) {
+                System.out.println(badWords.get(i));
+            }
+            System.out.println();
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR: Censored words file not found. Please restart server with a valid file.");
+            return;
+        } catch (IOException ioe)
+        {
+            ioe.printStackTrace();
         }
         String timeReceived = time.format(new Date());
         System.out.println(timeReceived + " Server waiting for clients on port " + server.port);
