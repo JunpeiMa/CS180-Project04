@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96ac5acb-df4d-4f06-a5e8-7a819a0a70e1" name="Default Changelist" comment="Now the ChatClient thread is able to send multiple messages to ChatServer.">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/badwords.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient$ListenFromServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer$ClientThread.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CS180-Project04/badwords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatClient.java" afterDir="false" />
+    <list default="true" id="96ac5acb-df4d-4f06-a5e8-7a819a0a70e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="936">
-              <caret line="151" column="44" lean-forward="true" selection-start-line="151" selection-start-column="44" selection-end-line="151" selection-end-column="44" />
+            <state relative-caret-position="363">
+              <caret line="118" column="32" lean-forward="true" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,8 +96,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ChatServer.java" />
         <option value="$PROJECT_DIR$/src/ChatClient.java" />
+        <option value="$PROJECT_DIR$/src/ChatServer.java" />
       </list>
     </option>
   </component>
@@ -162,7 +152,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543195125959" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543196358823" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -217,12 +207,12 @@
       <option name="presentableId" value="Default" />
       <updated>1542930550377</updated>
     </task>
-    <task id="LOCAL-00001" summary="Simplified ChatClient initializer.">
-      <created>1542970300961</created>
+    <task id="LOCAL-00001" summary="Now the ChatClient thread is able to send multiple messages to ChatServer.">
+      <created>1543195280461</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1542970300962</updated>
+      <updated>1543195280461</updated>
     </task>
     <task id="LOCAL-00002" summary="Simplified ChatClient initializer.">
       <created>1542972162447</created>
@@ -238,13 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543145041999</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="69" y="31" width="1297" height="737" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26932272" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26932272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -253,14 +244,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960223" visible="true" weight="0.32786885" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960223" weight="0.32786885" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4988067" weight="0.35409835" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50119334" side_tool="true" weight="0.3284553" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32786885" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32786885" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -298,6 +289,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Now the ChatClient thread is able to send multiple messages to ChatServer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now the ChatClient thread is able to send multiple messages to ChatServer." />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Thread.java">
@@ -357,8 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="151" column="44" lean-forward="true" selection-start-line="151" selection-start-column="44" selection-end-line="151" selection-end-column="44" />
+        <state relative-caret-position="363">
+          <caret line="118" column="32" lean-forward="true" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

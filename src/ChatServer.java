@@ -102,11 +102,22 @@ final class ChatServer {
     private void remove(int id)
     {
         //TODO: Implement method. Removes a client from the ArrayList.
+
+        ClientThread client = clients.get(id);
+            close(client);
+        clients.set(id,null);
     }
 
-    private void close()
+    private void close(ClientThread client)
     {
         //TODO: Implement method. This does the same thing as logging out of the ChatClient
+        try {
+            client.sOutput.close();
+            client.sInput.close();
+            client.socket.close();
+        } catch  (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
