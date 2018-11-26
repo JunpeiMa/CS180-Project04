@@ -42,18 +42,17 @@ final class ChatClient {
         try {
             socket = new Socket(server, port);
         } catch (IOException e) {
-            System.out.println("An error has occurred and the socket could not be created successfully. Try starting" +
-                    " the server before starting any clients or try using a Port Number the server is currently" +
-                    " listening for.");
+            System.out.println("ERROR: Socket could not be created. Check to make sure the server has started and the" +
+                    " port number matches the server.");
         }
 
         // Create your input and output streams
         try {
             sInput = new ObjectInputStream(socket.getInputStream());
             sOutput = new ObjectOutputStream(socket.getOutputStream());
-        } catch (IOException e) {
-            System.out.println("An error has occurred and the Input and Output streams could not be successfully" +
-                    " created. Check to make sure the socket was created properly. The Client will now close.");
+        } catch (IOException | NullPointerException e) {
+            System.out.println("ERROR: Input and Output streams could not be created because Socket is not present.");
+            return false;
         }
 
         // This thread will listen from the server for incoming messages
@@ -151,49 +150,45 @@ final class ChatClient {
 
         }
         // Create your client and start it
-        System.out.println("Client created successfully"); //Used solely for testing.
         ChatClient client = new ChatClient(server, port, username);
-        client.start();
-        // Send an empty message to the server
-        if (client.server.equals("localhost")) {
-            System.out.println("Connection accepted localhost/127.0.0.1:" + client.port);
-        } else
+        boolean testStart = client.start();
+        if (!testStart)
         {
-            System.out.println("Connection accepted " + client.server + client.port);
-        }
-        while(s.hasNextLine()){
-            String message = s.nextLine();
-            if (message.equalsIgnoreCase("/logout"))
-            {
-                client.sendMessage(new ChatMessage(message, 1, "Server"));
-                return;
+            return;
+        } else {
+            // Send an empty message to the server
+            if (client.server.equals("localhost")) {
+                System.out.println("Connection accepted localhost/127.0.0.1:" + client.port);
             } else {
-                String[] splitMessage = message.split(" ");
-                if (splitMessage != null && splitMessage[0].equals("/msg"))
-                {
-                    if (splitMessage.length == 1)
-                    {
-                        System.out.println("ERROR: Please enter a username to direct message.");
-                    } else
-                    {
-                        String userTo = splitMessage[1];
-                        if (userTo.equals(username))
-                        {
-                            System.out.println("ERROR: You cannot direct message yourself!");
-                        } else if (splitMessage.length == 2) {
-                            System.out.println("ERROR: You do not have a message to send.");
-                        } else
-                        {
-                            message = "";
-                            for (int i = 2; i < splitMessage.length; i++)
-                            {
-                                message += (splitMessage[i] + " ");
-                            }
-                            client.sendMessage(new ChatMessage(message, 2, splitMessage[1]));
-                        }
-                    }
+                System.out.println("Connection accepted " + client.server + client.port);
+            }
+            while (s.hasNextLine()) {
+                String message = s.nextLine();
+                if (message.equalsIgnoreCase("/logout")) {
+                    client.sendMessage(new ChatMessage(message, 1, "Server"));
+                    return;
                 } else {
-                    client.sendMessage(new ChatMessage(message, 0, "All"));
+                    String[] splitMessage = message.split(" ");
+                    if (splitMessage != null && splitMessage[0].equals("/msg")) {
+                        if (splitMessage.length == 1) {
+                            System.out.println("ERROR: Please enter a username to direct message.");
+                        } else {
+                            String userTo = splitMessage[1];
+                            if (userTo.equals(username)) {
+                                System.out.println("ERROR: You cannot direct message yourself!");
+                            } else if (splitMessage.length == 2) {
+                                System.out.println("ERROR: You do not have a message to send.");
+                            } else {
+                                message = "";
+                                for (int i = 2; i < splitMessage.length; i++) {
+                                    message += (splitMessage[i] + " ");
+                                }
+                                client.sendMessage(new ChatMessage(message, 2, splitMessage[1]));
+                            }
+                        }
+                    } else {
+                        client.sendMessage(new ChatMessage(message, 0, "All"));
+                    }
                 }
             }
         }
@@ -221,7 +216,5 @@ final class ChatClient {
 }
 
 //TODO: Check if username is unique
-//TODO: Check if port number matches server port number
-//TODO: Check if server is started before connecting Client
 //TODO: Handle server disconnect in Client
 
