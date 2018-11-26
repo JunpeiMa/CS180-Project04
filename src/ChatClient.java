@@ -160,7 +160,7 @@ final class ChatClient {
             if (client.server.equals("localhost")) {
                 System.out.println("Connection accepted localhost/127.0.0.1:" + client.port);
             } else {
-                System.out.println("Connection accepted " + client.server + client.port);
+                System.out.println("Connection accepted " + client.server + ":" + client.port);
             }
             while (s.hasNextLine()) {
                 String message = s.nextLine();
