@@ -41,7 +41,7 @@ public class ChatFilter {
             {
                 censor += "*";
             }
-            msg = msg.replaceAll(badWords.get(i), censor);
+            msg = msg.replaceAll("(?i)" + badWords.get(i), censor);
             censor = "";
         }
         return msg;

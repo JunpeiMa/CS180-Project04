@@ -83,7 +83,6 @@ final class ChatClient {
                 sOutput.close();
                 sInput.close();
                 socket.close();
-                //TODO: Catch the SocketException, and output accordingly
             } else
             {
                 sOutput.writeObject(msg);
@@ -199,8 +198,6 @@ final class ChatClient {
 //TODO: Check if port number matches server port number
 //TODO: Check if server is started before connecting Client
 //TODO: Handle server disconnect in Client
-//TODO: Finish ChatFilter and make it work properly.
 //TODO: Implement direct messaging between users. A user cannot DM themselves.
-//TODO: Make other clients not able to see logout
 //TODO: Make other clients able to see login
 

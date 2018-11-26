@@ -48,8 +48,7 @@ final class ChatServer {
         ChatServer server = new ChatServer(1500, bannedWordsFileName);
         if (args.length == 1) {
             server = new ChatServer(Integer.parseInt(args[0]), bannedWordsFileName);
-        } else if (args.length == 2)
-        {
+        } else if (args.length == 2) {
             bannedWordsFileName = args[1];
             server = new ChatServer(Integer.parseInt(args[0]), args[1]);
         }
@@ -64,21 +63,18 @@ final class ChatServer {
             fr = new FileReader(f);
             br = new BufferedReader(fr);
             String line;
-            while ((line = br.readLine()) != null)
-            {
+            while ((line = br.readLine()) != null) {
                 badWords.add(line);
             }
 
             fr.close();
             br.close();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             //System.out.println("Error: Censored words file not found.");
         }
         System.out.println("Banned Words:\n");
-        for (int i = 0; i < badWords.size(); i++)
-        {
+        for (int i = 0; i < badWords.size(); i++) {
             System.out.println(badWords.get(i) + "\n");
         }
         String timeReceived = time.format(new Date());
@@ -86,19 +82,16 @@ final class ChatServer {
         server.start();
     }
 
-    private void broadcast(String message)
-    {
+    private void broadcast(String message) {
         synchronized (this) { //Might want to check this later...
             ChatFilter cf = new ChatFilter(this.fileName);
             String filteredMsg = cf.filter(message);
             String timeReceived = time.format(new Date());
             String messageWithTime = timeReceived + " " + filteredMsg;
-            for (int i = 0; i < clients.size(); i++)
-            {
+            for (int i = 0; i < clients.size(); i++) {
                 try {
                     clients.get(i).writeMessage(messageWithTime);
-                } catch (NullPointerException e)
-                {
+                } catch (NullPointerException e) {
                     System.out.print("");
                 }
             }
@@ -106,22 +99,19 @@ final class ChatServer {
         }
     }
 
-    private void remove(int id)
-    {
+    private void remove(int id) {
         synchronized (this) {
             close(clients.get(id));
             clients.set(id, null);
         }
     }
 
-    private void close(ClientThread client)
-    {
+    private void close(ClientThread client) {
         try {
             client.sOutput.close();
             client.sInput.close();
             client.socket.close();
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -161,30 +151,28 @@ final class ChatServer {
             System.out.println(timeReceived + " Server waiting for clients on port " + port + ".");
             while (clients.get(id) != null) {
                 // Read the username sent to you by client
+                String timeList = time.format(new Date());
                 try {
                     cm = (ChatMessage) sInput.readObject();
-                    if (cm.getMsg().equals("/list"))
-                    {
-                        String timeList = time.format(new Date());
+                    if (cm.getMsg().equals("/list")) {
                         System.out.println(timeList + " " + username + " used /list command.");
-                        for (int i = 0; i < clients.size(); i++)
-                        {
+                        for (int i = 0; i < clients.size(); i++) {
                             if (clients.get(i) != null && clients.get(i).username != username) {
                                 sOutput.writeObject(clients.get(i).username);
                             }
                         }
+                    } else if (cm.getMsg().equals("disconnected with a LOGOUT message")) {
+                        System.out.println(timeList + " " + username + " " + cm.getMsg());
+                        remove(id);
                     } else {
                         //System.out.println(username + ": Ping");
                         String message = (username + " : " + cm.getMsg());
                         broadcast(message);
-                        if (cm.getType() == 1) {
-                            remove(id);
-                        }
                     }
-
                 } catch (IOException | ClassNotFoundException e) {
-                        remove(id);
-                    System.out.println("Connection with " + username + " has been terminated by the user.");
+                    remove(id);
+                    String timeClosed = time.format(new Date());
+                    System.out.println(timeClosed + " Connection with " + username + " has been terminated by the user.");
                 }
 
 //                try {
@@ -195,19 +183,15 @@ final class ChatServer {
             }
         }
 
-        private boolean writeMessage(String msg)
-        {
-            if (this.socket.isConnected())
-            {
+        private boolean writeMessage(String msg) {
+            if (this.socket.isConnected()) {
                 try {
                     sOutput.writeObject(msg);
-                } catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
                 return true;
-            } else
-            {
+            } else {
                 return false;
             }
         }
