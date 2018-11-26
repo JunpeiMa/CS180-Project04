@@ -169,7 +169,7 @@ final class ChatServer {
                         System.out.println(timeList + " " + username + " used /list command.");
                         for (int i = 0; i < clients.size(); i++)
                         {
-                            if (clients.get(i).username != username) {
+                            if (clients.get(i) != null && clients.get(i).username != username) {
                                 sOutput.writeObject(clients.get(i).username);
                             }
                         }
