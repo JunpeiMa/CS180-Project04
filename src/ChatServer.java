@@ -163,57 +163,75 @@ final class ChatServer {
          */
         @Override
         public void run() {
-            String timeReceived = time.format(new Date());
-            broadcast(username + " just connected.");
-            System.out.println(timeReceived + " Server waiting for clients on port " + port + ".");
-            while (clients.get(id) != null) {
-                // Read the username sent to you by client
-                String timeList = time.format(new Date());
-                try {
-                    cm = (ChatMessage) sInput.readObject();
-                    if (cm.getMsg().equals("/list")) {
-                        System.out.println(timeList + " " + username + " used /list command.");
-                        for (int i = 0; i < clients.size(); i++) {
-                            if (clients.get(i) != null && !clients.get(i).username.equals(username)) {
-                                sOutput.writeObject(clients.get(i).username);
-                            }
-                        }
-                    } else if (cm.getType() == 1) {
-                        String timeClosed = time.format(new Date());
-                        System.out.println(timeClosed + " " + username + " " + cm.getMsg());
-                        remove(id);
-                    } else if (cm.getType() == 2) {
-                        String timeOfDirectMessage = time.format(new Date());
-                        String dm = (timeOfDirectMessage + " " + username + " -> " + cm.getRecipient() + ": " +
-                                cm.getMsg());
-                        boolean successful = directMessage(dm, cm.getRecipient()); //To recipient
-                        if (successful) {
+            boolean start = true;
+            for (int i = 0; i < clients.size() - 1; i++)
+            {
+                if (username.equals(clients.get(i).username))
+                {
+                    start = false;
+                }
+            }
+            if (start) {
+                String timeReceived = time.format(new Date());
+                broadcast(username + " just connected.");
+                System.out.println(timeReceived + " Server waiting for clients on port " + port + ".");
+                while (clients.get(id) != null) {
+                    // Read the username sent to you by client
+                    String timeList = time.format(new Date());
+                    try {
+                        cm = (ChatMessage) sInput.readObject();
+                        if (cm.getMsg().equals("/list")) {
+                            System.out.println(timeList + " " + username + " used /list command.");
                             for (int i = 0; i < clients.size(); i++) {
-                                if (clients.get(i) != null && clients.get(i).username.equals(username)) {
-                                    ChatFilter cf = new ChatFilter(fileName);
-                                    clients.get(i).writeMessage(cf.filter(dm)); //To sender
+                                if (clients.get(i) != null && !clients.get(i).username.equals(username)) {
+                                    sOutput.writeObject(clients.get(i).username);
                                 }
                             }
-                        } else
-                        {
-                            sOutput.writeObject("ERROR: User does not exist!");
+                        } else if (cm.getType() == 1) {
+                            String timeClosed = time.format(new Date());
+                            System.out.println(timeClosed + " " + username + " " + cm.getMsg());
+                            remove(id);
+                        } else if (cm.getType() == 2) {
+                            String timeOfDirectMessage = time.format(new Date());
+                            String dm = (timeOfDirectMessage + " " + username + " -> " + cm.getRecipient() + ": " +
+                                    cm.getMsg());
+                            boolean successful = directMessage(dm, cm.getRecipient()); //To recipient
+                            if (successful) {
+                                for (int i = 0; i < clients.size(); i++) {
+                                    if (clients.get(i) != null && clients.get(i).username.equals(username)) {
+                                        ChatFilter cf = new ChatFilter(fileName);
+                                        clients.get(i).writeMessage(cf.filter(dm)); //To sender
+                                    }
+                                }
+                            } else {
+                                sOutput.writeObject("ERROR: User does not exist!");
+                            }
+                        } else {
+                            //System.out.println(username + ": Ping");
+                            String message = (username + " : " + cm.getMsg());
+                            broadcast(message);
                         }
-                    } else {
-                        //System.out.println(username + ": Ping");
-                        String message = (username + " : " + cm.getMsg());
-                        broadcast(message);
+                    } catch (IOException | ClassNotFoundException e) {
+                        remove(id);
+                        String timeClosed = time.format(new Date());
+                        System.out.println(timeClosed + " Connection with " + username + " has been terminated by the user.");
                     }
-                } catch (IOException | ClassNotFoundException e) {
-                    remove(id);
-                    String timeClosed = time.format(new Date());
-                    System.out.println(timeClosed + " Connection with " + username + " has been terminated by the user.");
-                }
 
 //                try {
 //                    sOutput.writeObject("Pong");
 //                } catch (IOException e) {
 //                    e.printStackTrace();
 //                }
+                }
+            } else
+            {
+                try {
+                    sOutput.writeObject("ERROR: Username already exists!");
+                    remove(id);
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
             }
         }
 

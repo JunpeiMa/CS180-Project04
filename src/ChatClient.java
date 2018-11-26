@@ -76,15 +76,18 @@ final class ChatClient {
      */
     private void sendMessage(ChatMessage msg) {
         try {
-            if (msg.getType() == 1)
-            {
-                sOutput.writeObject(new ChatMessage("disconnected with a LOGOUT message", 1, "Server"));
-                sOutput.close();
-                sInput.close();
-                socket.close();
+            if (socket.isConnected()) {
+                if (msg.getType() == 1) {
+                    sOutput.writeObject(new ChatMessage("disconnected with a LOGOUT message", 1, "Server"));
+                    sOutput.close();
+                    sInput.close();
+                    socket.close();
+                } else {
+                    sOutput.writeObject(msg);
+                }
             } else
             {
-                sOutput.writeObject(msg);
+                System.out.println("Please close the program manually.");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,22 +115,6 @@ final class ChatClient {
         String server = "localhost";
         boolean startConnection = false;
         while (!startConnection) {
-            /*String input = s.nextLine();
-            String[] splitInput = input.split(" ");
-            if (splitInput.length >= 2 && splitInput.length < 6) {
-                if (splitInput[0].equals("java") && splitInput[1].equals("ChatClient")) {
-                    startConnection = true;
-                    if (splitInput.length >= 3) {
-                        username = splitInput[2];
-                    }
-                    if (splitInput.length >= 4) {
-                        port = Integer.parseInt(splitInput[3]);
-                    }
-                    if (splitInput.length == 5) {
-                        server = splitInput[4];
-                    }
-                }
-            } */
             if (args.length <= 3)
                 startConnection = true;
 
@@ -209,12 +196,12 @@ final class ChatClient {
                     System.out.println();
                 }
             } catch (IOException | ClassNotFoundException e) {
-                System.out.println("Server has closed the connection.");
+                System.out.println("Server has closed the connection. Please close the client if necessary.");
+                System.exit(0); //That one cursed line.
             }
         }
     }
 }
 
-//TODO: Check if username is unique
 //TODO: Handle server disconnect in Client
 

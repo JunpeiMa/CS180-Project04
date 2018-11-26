@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="96ac5acb-df4d-4f06-a5e8-7a819a0a70e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient$ListenFromServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient$ListenFromServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer$ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer$ClientThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,25 +29,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5091" />
-          <entry key="txt" value="592" />
+          <entry key="java" value="5765" />
+          <entry key="txt" value="611" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5091" />
-          <entry key="PLAIN_TEXT" value="592" />
+          <entry key="JAVA" value="5765" />
+          <entry key="PLAIN_TEXT" value="611" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="162" column="81" selection-start-line="162" selection-start-column="81" selection-end-line="162" selection-end-column="81" />
+            <state relative-caret-position="263">
+              <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,14 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="77" column="110" selection-start-line="77" selection-start-column="110" selection-end-line="77" selection-end-column="110" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-2669">
+              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -125,8 +124,8 @@
       <find>user</find>
       <find>socket</find>
       <find>cf</find>
-      <find>username</find>
       <find>client cr</find>
+      <find>username</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -138,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/ChatFilter.java" />
         <option value="$PROJECT_DIR$/src/ChatMessage.java" />
         <option value="$PROJECT_DIR$/badwords.txt" />
-        <option value="$PROJECT_DIR$/src/ChatClient.java" />
         <option value="$PROJECT_DIR$/src/ChatServer.java" />
+        <option value="$PROJECT_DIR$/src/ChatClient.java" />
       </list>
     </option>
   </component>
@@ -199,7 +198,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543271588494" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543275675821" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -221,7 +220,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ChatServer">
+  <component name="RunManager" selected="Application.ChatClient">
     <configuration name="ChatClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatClient" />
       <module name="CS180-Project04" />
@@ -242,8 +241,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ChatServer" />
         <item itemvalue="Application.ChatClient" />
+        <item itemvalue="Application.ChatServer" />
       </list>
     </recent_temporary>
   </component>
@@ -321,15 +320,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543270915494</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="A few minor tweaks.">
+      <created>1543271600755</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1543271600755</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5644938" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24966443" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -396,7 +401,8 @@
     <MESSAGE value="Direct Messaging between users is now implemented and works properly." />
     <MESSAGE value="Fixed a few edge cases. Only a few left!" />
     <MESSAGE value="Added a colon in a random string somewhere. Formatting issue." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a colon in a random string somewhere. Formatting issue." />
+    <MESSAGE value="A few minor tweaks." />
+    <option name="LAST_COMMIT_MESSAGE" value="A few minor tweaks." />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Thread.java" />
@@ -419,16 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="162" column="81" selection-start-line="162" selection-start-column="81" selection-end-line="162" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -447,8 +443,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="77" column="110" selection-start-line="77" selection-start-column="110" selection-end-line="77" selection-end-column="110" />
+        <state relative-caret-position="-2669">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
