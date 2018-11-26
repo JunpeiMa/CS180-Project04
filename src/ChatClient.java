@@ -79,6 +79,7 @@ final class ChatClient {
         try {
             if (msg.getType() == 1)
             {
+                sOutput.writeObject(new ChatMessage("disconnected with a LOGOUT message",1));
                 sOutput.close();
                 sInput.close();
                 socket.close();
@@ -176,9 +177,10 @@ final class ChatClient {
     private final class ListenFromServer implements Runnable {
         public void run() {
             try {
-                while(true) {
+                while(!socket.isClosed()) {
                     String msg = (String) sInput.readObject();
                     System.out.print(msg);
+                    System.out.println();
                 }
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();

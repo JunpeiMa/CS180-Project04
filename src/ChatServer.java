@@ -148,7 +148,8 @@ final class ChatServer {
                     //System.out.println(username + ": Ping");
                     String message = (username + " : " + cm.getMsg());
                     broadcast(message);
-
+                    if (cm.getType() == 1)
+                        this.socket.close();
 
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
