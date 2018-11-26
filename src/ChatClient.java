@@ -189,3 +189,14 @@ final class ChatClient {
     }
 }
 
+//TODO: Check if username is unique
+//TODO: Check if port number matches server port number
+//TODO: Check if server is started before connecting Client
+//TODO: Handle /logout properly on both ends
+//TODO: Remove client from client list if they are disconnected or have logged out
+//TODO: Handle server disconnect in Client
+//TODO: Handle client disconnect in Server. Make it so it doesn't infinitely loop.
+//TODO: Finish ChatFilter and make it work properly.
+//TODO: Implement direct messaging between users. A user cannot DM themselves
+//TODO: Listing Users with the /list command, excluding the user who puts command in.
+

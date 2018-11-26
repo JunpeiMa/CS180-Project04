@@ -81,6 +81,8 @@ final class ChatServer {
         {
             System.out.println(badWords.get(i) + "\n");
         }
+        String timeReceived = time.format(new Date());
+        System.out.println(timeReceived + " Server waiting for clients on port " + server.port);
         server.start();
     }
 
@@ -89,8 +91,8 @@ final class ChatServer {
         synchronized (this) { //Might want to check this later...
             ChatFilter cf = new ChatFilter(this.fileName);
             String filteredMsg = cf.filter(message);
-            String timeRecieved = time.format(new Date());
-            String messageWithTime = timeRecieved + " " + filteredMsg;
+            String timeReceived = time.format(new Date());
+            String messageWithTime = timeReceived + " " + filteredMsg;
             for (int i = 0; i < clients.size(); i++)
             {
                 clients.get(i).writeMessage(messageWithTime);
@@ -151,7 +153,8 @@ final class ChatServer {
          */
         @Override
         public void run() {
-
+            String timeReceived = time.format(new Date());
+            System.out.println(timeReceived + " Server waiting for clients on port " + port);
 
             while (!this.socket.isClosed()) { //TODO: Issue here. When client logs off, this still loops.
                 // Read the username sent to you by client
