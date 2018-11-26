@@ -8,7 +8,7 @@ import java.util.*;
 
 final class ChatServer {
     private static int uniqueId = 0;
-    private final List<ClientThread> clients = new ArrayList<>();
+    public final List<ClientThread> clients = new ArrayList<>();
     private final int port;
     private final String fileName;
     private static SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
@@ -82,8 +82,7 @@ final class ChatServer {
         server.start();
     }
 
-    private void broadcast(String message) {
-        synchronized (this) { //Might want to check this later...
+    private synchronized void broadcast(String message) {
             ChatFilter cf = new ChatFilter(this.fileName);
             String filteredMsg = cf.filter(message);
             String timeReceived = time.format(new Date());
@@ -96,7 +95,21 @@ final class ChatServer {
                 }
             }
             System.out.println(messageWithTime);
+    }
+
+    private boolean directMessage(String message, String recipient)
+    {
+        for (int i = 0; i < clients.size(); i++)
+        {
+            if (clients.get(i) != null && clients.get(i).username.equals(recipient))
+            {
+                ChatFilter cf = new ChatFilter(this.fileName);
+                clients.get(i).writeMessage(cf.filter(message));
+                System.out.println(cf.filter(message));
+                return true;
+            }
         }
+        return false;
     }
 
     private void remove(int id) {
@@ -147,7 +160,7 @@ final class ChatServer {
         @Override
         public void run() {
             String timeReceived = time.format(new Date());
-            System.out.println(timeReceived + " " + username + " just connected.");
+            broadcast(username + " just connected.");
             System.out.println(timeReceived + " Server waiting for clients on port " + port + ".");
             while (clients.get(id) != null) {
                 // Read the username sent to you by client
@@ -157,13 +170,30 @@ final class ChatServer {
                     if (cm.getMsg().equals("/list")) {
                         System.out.println(timeList + " " + username + " used /list command.");
                         for (int i = 0; i < clients.size(); i++) {
-                            if (clients.get(i) != null && clients.get(i).username != username) {
+                            if (clients.get(i) != null && !clients.get(i).username.equals(username)) {
                                 sOutput.writeObject(clients.get(i).username);
                             }
                         }
-                    } else if (cm.getMsg().equals("disconnected with a LOGOUT message")) {
-                        System.out.println(timeList + " " + username + " " + cm.getMsg());
+                    } else if (cm.getType() == 1) {
+                        String timeClosed = time.format(new Date());
+                        System.out.println(timeClosed + " " + username + " " + cm.getMsg());
                         remove(id);
+                    } else if (cm.getType() == 2) {
+                        String timeOfDirectMessage = time.format(new Date());
+                        String dm = (timeOfDirectMessage + " " + username + " -> " + cm.getRecipient() + ": " +
+                                cm.getMsg());
+                        boolean successful = directMessage(dm, cm.getRecipient()); //To recipient
+                        if (successful) {
+                            for (int i = 0; i < clients.size(); i++) {
+                                if (clients.get(i) != null && clients.get(i).username.equals(username)) {
+                                    ChatFilter cf = new ChatFilter(fileName);
+                                    clients.get(i).writeMessage(cf.filter(dm)); //To sender
+                                }
+                            }
+                        } else
+                        {
+                            sOutput.writeObject("ERROR: User does not exist!");
+                        }
                     } else {
                         //System.out.println(username + ": Ping");
                         String message = (username + " : " + cm.getMsg());

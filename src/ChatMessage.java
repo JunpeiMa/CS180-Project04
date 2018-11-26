@@ -7,10 +7,12 @@ final class ChatMessage implements Serializable {
 
     private String msg;
     private int type;
+    private String recipient;
 
-    public ChatMessage(String msg, int type){
+    public ChatMessage(String msg, int type, String recipient){
         this.msg = msg;
         this.type = type;
+        this.recipient = recipient;
     }
 
     public void setType(int type) {
@@ -21,12 +23,20 @@ final class ChatMessage implements Serializable {
         this.msg = msg;
     }
 
+    public void setRecipient(String recipient) {
+        this.recipient = recipient;
+    }
+
     public String getMsg() {
         return msg;
     }
 
     public int getType() {
         return type;
+    }
+
+    public String getRecipient() {
+        return recipient;
     }
 
 }

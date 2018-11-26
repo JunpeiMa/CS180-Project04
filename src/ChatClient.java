@@ -79,7 +79,7 @@ final class ChatClient {
         try {
             if (msg.getType() == 1)
             {
-                sOutput.writeObject(new ChatMessage("disconnected with a LOGOUT message", 1));
+                sOutput.writeObject(new ChatMessage("disconnected with a LOGOUT message", 1, "Server"));
                 sOutput.close();
                 sInput.close();
                 socket.close();
@@ -155,7 +155,7 @@ final class ChatClient {
         ChatClient client = new ChatClient(server, port, username);
         client.start();
         // Send an empty message to the server
-        if (client.server == "localhost") {
+        if (client.server.equals("localhost")) {
             System.out.println("Connection accepted localhost/127.0.0.1:" + client.port);
         } else
         {
@@ -165,10 +165,36 @@ final class ChatClient {
             String message = s.nextLine();
             if (message.equalsIgnoreCase("/logout"))
             {
-                client.sendMessage(new ChatMessage(message, 1));
+                client.sendMessage(new ChatMessage(message, 1, "Server"));
                 return;
             } else {
-                client.sendMessage(new ChatMessage(message, 0));
+                String[] splitMessage = message.split(" ");
+                if (splitMessage != null && splitMessage[0].equals("/msg"))
+                {
+                    if (splitMessage.length == 1)
+                    {
+                        System.out.println("ERROR: Please enter a username to direct message.");
+                    } else
+                    {
+                        String userTo = splitMessage[1];
+                        if (userTo.equals(username))
+                        {
+                            System.out.println("ERROR: You cannot direct message yourself!");
+                        } else if (splitMessage.length == 2) {
+                            System.out.println("ERROR: You do not have a message to send.");
+                        } else
+                        {
+                            message = "";
+                            for (int i = 2; i < splitMessage.length; i++)
+                            {
+                                message += (splitMessage[i] + " ");
+                            }
+                            client.sendMessage(new ChatMessage(message, 2, splitMessage[1]));
+                        }
+                    }
+                } else {
+                    client.sendMessage(new ChatMessage(message, 0, "All"));
+                }
             }
         }
     }
@@ -198,6 +224,4 @@ final class ChatClient {
 //TODO: Check if port number matches server port number
 //TODO: Check if server is started before connecting Client
 //TODO: Handle server disconnect in Client
-//TODO: Implement direct messaging between users. A user cannot DM themselves.
-//TODO: Make other clients able to see login
 
