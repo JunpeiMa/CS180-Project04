@@ -203,5 +203,3 @@ final class ChatClient {
     }
 }
 
-//TODO: Handle server disconnect in Client
-

@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="96ac5acb-df4d-4f06-a5e8-7a819a0a70e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient$ListenFromServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient$ListenFromServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer$ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer$ClientThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS180-Project04/ChatServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,13 +24,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5765" />
+          <entry key="java" value="5795" />
           <entry key="txt" value="611" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5765" />
+          <entry key="JAVA" value="5795" />
           <entry key="PLAIN_TEXT" value="611" />
         </counts>
       </usages-collector>
@@ -43,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
+            <state relative-caret-position="115">
+              <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +53,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2669">
-              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="115">
+              <caret line="23" column="80" selection-start-line="23" selection-start-column="80" selection-end-line="23" selection-end-column="80" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="172">
               <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
               <folding>
                 <element signature="e#218#219#0" expanded="true" />
@@ -86,16 +84,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChatMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+            <state relative-caret-position="138">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
+                <element signature="e#566#567#0" expanded="true" />
                 <element signature="e#608#609#0" expanded="true" />
                 <element signature="e#462#463#0" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
-                <element signature="e#516#517#0" expanded="true" />
                 <element signature="e#543#544#0" expanded="true" />
                 <element signature="e#667#668#0" expanded="true" />
                 <element signature="e#698#699#0" expanded="true" />
@@ -126,6 +124,7 @@
       <find>cf</find>
       <find>client cr</find>
       <find>username</find>
+      <find>TODO</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,7 +197,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543275675821" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543275791832" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -327,11 +326,19 @@
       <option name="project" value="LOCAL" />
       <updated>1543271600755</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="A few minor tweaks.">
+      <created>1543275798850</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1543275798850</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5644938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24966443" />
@@ -342,8 +349,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960223" visible="true" weight="0.3177305" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39858156" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960223" weight="0.3177305" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39858156" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
@@ -407,9 +414,36 @@
   <component name="editorHistoryManager">
     <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Thread.java" />
     <entry file="jar:///usr/lib/jvm/jdk-11.0.1/lib/src.zip!/java.base/java/io/ObjectInputStream.java" />
+    <entry file="file://$PROJECT_DIR$/badwords.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="23" column="80" selection-start-line="23" selection-start-column="80" selection-end-line="23" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state relative-caret-position="172">
           <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
           <folding>
             <element signature="e#218#219#0" expanded="true" />
@@ -418,42 +452,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/badwords.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+        <state relative-caret-position="138">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
+            <element signature="e#566#567#0" expanded="true" />
             <element signature="e#608#609#0" expanded="true" />
             <element signature="e#462#463#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
             <element signature="e#543#544#0" expanded="true" />
             <element signature="e#667#668#0" expanded="true" />
             <element signature="e#698#699#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2669">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
