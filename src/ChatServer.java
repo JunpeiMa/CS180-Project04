@@ -1,6 +1,4 @@
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
@@ -12,10 +10,13 @@ final class ChatServer {
     private static int uniqueId = 0;
     private final List<ClientThread> clients = new ArrayList<>();
     private final int port;
+    private final String fileName;
+    private static SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
 
 
-    private ChatServer(int port) {
+    private ChatServer(int port, String fileName) {
         this.port = port;
+        this.fileName = fileName;
     }
 
     /*
@@ -43,18 +44,51 @@ final class ChatServer {
      *  If the port number is not specified 1500 is used
      */
     public static void main(String[] args) {
-        ChatServer server = new ChatServer(1500);
-        if (args.length == 1)
-            server = new ChatServer(Integer.parseInt(args[0]));
+        String bannedWordsFileName = "badwords.txt";
+        ChatServer server = new ChatServer(1500, bannedWordsFileName);
+        if (args.length == 1) {
+            server = new ChatServer(Integer.parseInt(args[0]), bannedWordsFileName);
+        } else if (args.length == 2)
+        {
+            bannedWordsFileName = args[1];
+            server = new ChatServer(Integer.parseInt(args[0]), args[1]);
+        }
+        System.out.println("Banned Words File: " + bannedWordsFileName);
+        ArrayList<String> badWords = new ArrayList<>();
+        File f;
+        FileReader fr;
+        BufferedReader br;
+
+        try {
+            f = new File(bannedWordsFileName);
+            fr = new FileReader(f);
+            br = new BufferedReader(fr);
+            String line;
+            while ((line = br.readLine()) != null)
+            {
+                badWords.add(line);
+            }
+
+            fr.close();
+            br.close();
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            //System.out.println("Error: Censored words file not found.");
+        }
+        System.out.println("Banned Words:\n");
+        for (int i = 0; i < badWords.size(); i++)
+        {
+            System.out.println(badWords.get(i) + "\n");
+        }
         server.start();
     }
 
     private void broadcast(String message)
     {
         synchronized (this) { //Might want to check this later...
-            ChatFilter cf = new ChatFilter("badwords.txt");
+            ChatFilter cf = new ChatFilter(this.fileName);
             String filteredMsg = cf.filter(message);
-            SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
             String timeRecieved = time.format(new Date());
             String messageWithTime = timeRecieved + " " + filteredMsg;
             for (int i = 0; i < clients.size(); i++)
@@ -107,7 +141,7 @@ final class ChatServer {
         public void run() {
 
 
-            while (this.socket.isConnected()) { //TODO: Issue here. When client logs off, this still loops.
+            while (!this.socket.isClosed()) { //TODO: Issue here. When client logs off, this still loops.
                 // Read the username sent to you by client
                 try {
                     cm = (ChatMessage) sInput.readObject();
