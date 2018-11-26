@@ -177,10 +177,10 @@ final class ChatServer {
                 System.out.println(timeReceived + " Server waiting for clients on port " + port + ".");
                 while (clients.get(id) != null) {
                     // Read the username sent to you by client
-                    String timeList = time.format(new Date());
                     try {
                         cm = (ChatMessage) sInput.readObject();
                         if (cm.getMsg().equals("/list")) {
+                            String timeList = time.format(new Date());
                             System.out.println(timeList + " " + username + " used /list command.");
                             for (int i = 0; i < clients.size(); i++) {
                                 if (clients.get(i) != null && !clients.get(i).username.equals(username)) {
