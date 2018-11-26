@@ -167,6 +167,7 @@ final class ChatClient {
             if (message.equalsIgnoreCase("/logout"))
             {
                 client.sendMessage(new ChatMessage(message, 1));
+                return;
             } else {
                 client.sendMessage(new ChatMessage(message, 0));
             }
@@ -197,9 +198,9 @@ final class ChatClient {
 //TODO: Check if username is unique
 //TODO: Check if port number matches server port number
 //TODO: Check if server is started before connecting Client
-//TODO: Remove client from client list if they are disconnected or have logged out
 //TODO: Handle server disconnect in Client
 //TODO: Finish ChatFilter and make it work properly.
 //TODO: Implement direct messaging between users. A user cannot DM themselves.
-//TODO: Make client automatically close program when they logout.
+//TODO: Make other clients not able to see logout
+//TODO: Make other clients able to see login
 
